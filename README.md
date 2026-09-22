@@ -66,6 +66,9 @@ No build tools required. Either:
 - **WhatsApp number** — update the `href="https://wa.me/..."` value on the floating button near the bottom of `index.html`
 - **Newsletter / order actions** — currently front-end only; wire the `<form>` submit handlers in `js/script.js` up to a real backend or service (e.g. Mailchimp, a serverless function, eSewa/Khalti checkout) to go live
 
+## Images
+
+Photos (hero collage, bean cards, and the "Our Story" timeline) are hotlinked from [Pexels](https://www.pexels.com), which are free to use for commercial projects with no attribution required. They're placeholders standing in for real farm/roastery photography.
 ## Tech notes
 
 - Fonts: [Fraunces](https://fonts.google.com/specimen/Fraunces) (display), [Work Sans](https://fonts.google.com/specimen/Work+Sans) (body), [Noto Sans Devanagari](https://fonts.google.com/noto/specimen/Noto+Sans+Devanagari) (for the नमस्ते accent) — loaded from Google Fonts
