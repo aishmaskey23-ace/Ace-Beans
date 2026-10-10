@@ -1,6 +1,3 @@
-/* ---------------------------------------------------------------
-   Mobile navigation toggle
---------------------------------------------------------------- */
 const navToggle = document.getElementById('navToggle');
 const primaryNav = document.getElementById('primaryNav');
 
@@ -26,9 +23,6 @@ if (navToggle && primaryNav) {
   });
 }
 
-/* ---------------------------------------------------------------
-   Dark / light theme toggle (persisted)
---------------------------------------------------------------- */
 const themeToggle = document.getElementById('themeToggle');
 const root = document.documentElement;
 
@@ -58,18 +52,12 @@ themeToggle?.addEventListener('click', () => {
   try { localStorage.setItem('acebeans-theme', next); } catch (e) { /* storage unavailable */ }
 });
 
-/* ---------------------------------------------------------------
-   Sticky header shadow on scroll
---------------------------------------------------------------- */
 const header = document.querySelector('.site-header');
 window.addEventListener('scroll', () => {
   if (!header) return;
   header.style.boxShadow = window.scrollY > 8 ? '0 4px 20px -10px rgba(36,22,16,0.25)' : 'none';
 }, { passive: true });
 
-/* ---------------------------------------------------------------
-   Animated stat counters + fade-in reveals (single IntersectionObserver)
---------------------------------------------------------------- */
 function animateCount(el) {
   const target = parseInt(el.dataset.count, 10);
   const suffix = el.dataset.suffix || '';
@@ -109,9 +97,6 @@ if ('IntersectionObserver' in window) {
   revealEls.forEach((el) => el.classList.add('is-visible'));
 }
 
-/* ---------------------------------------------------------------
-   Testimonial slider
---------------------------------------------------------------- */
 const track = document.getElementById('testimonialTrack');
 const dotsWrap = document.getElementById('testimonialDots');
 const prevBtn = document.getElementById('prevTestimonial');
@@ -155,9 +140,6 @@ if (track && dotsWrap) {
   startAutoplay();
 }
 
-/* ---------------------------------------------------------------
-   Newsletter form (client-side only — no backend wired up)
---------------------------------------------------------------- */
 const newsletterForm = document.getElementById('newsletterForm');
 const newsletterMessage = document.getElementById('newsletterMessage');
 const newsletterEmail = document.getElementById('newsletterEmail');
@@ -177,9 +159,6 @@ newsletterForm?.addEventListener('submit', (event) => {
   newsletterForm.reset();
 });
 
-/* ---------------------------------------------------------------
-   Back-to-top button
---------------------------------------------------------------- */
 const backToTop = document.getElementById('backToTop');
 window.addEventListener('scroll', () => {
   if (!backToTop) return;
@@ -190,9 +169,6 @@ backToTop?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-/* ---------------------------------------------------------------
-   FAQ — only one open at a time
---------------------------------------------------------------- */
 const faqItems = document.querySelectorAll('.faq-list details');
 faqItems.forEach((item) => {
   item.addEventListener('toggle', () => {
