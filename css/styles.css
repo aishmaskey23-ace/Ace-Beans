@@ -8,6 +8,7 @@
   --accent-dark: #7A1C2B;
   --blue: #1B3B6F;
   --gold: #C9932F;
+  --on-accent: #FFFDF9;
   --font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --font-body: "Work Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-deva: "Noto Sans Devanagari", var(--font-body);
@@ -23,9 +24,12 @@
   --line: rgba(244, 234, 221, 0.14);
   --accent: #D9707F;
   --accent-dark: #E88C98;
+  --on-accent: #17110B;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .strip-track { animation: none; }
+  .js .reveal { transform: none; }
   *{ animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
 
@@ -113,7 +117,7 @@ a { color: inherit; }
 }
 .btn-primary {
   background: var(--accent);
-  color: #FFFDF9;
+  color: var(--on-accent);
 }
 .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
@@ -385,6 +389,7 @@ a { color: inherit; }
   font-weight: 600;
   margin-bottom: 0.75em;
 }
+.bean .btn { margin-top: 1.1rem; }
 .bean-price {
   margin: 1rem 0 0;
   font-family: var(--font-display);
@@ -398,12 +403,12 @@ a { color: inherit; }
 }
 
 
-.reveal {
+.js .reveal {
   opacity: 0;
   transform: translateY(16px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -519,6 +524,7 @@ a { color: inherit; }
   font-size: 1rem;
 }
 .testimonial-controls button:hover { border-color: var(--ink); }
+.testimonial-controls .pause-btn { font-size: 0.65rem; letter-spacing: -0.1em; }
 .testimonial-dots { display: flex; gap: 0.5rem; }
 .testimonial-dots button {
   width: 8px;
@@ -556,7 +562,7 @@ a { color: inherit; }
 }
 .price {
   font-family: var(--font-display);
-  font-size: 2.2rem;
+  font-size: 1.9rem;
   margin: 0.25rem 0 1.25rem;
   color: var(--ink);
 }
@@ -565,6 +571,10 @@ a { color: inherit; }
   font-size: 0.9rem;
   font-weight: 400;
   color: var(--ink-soft);
+}
+.price-note {
+  margin: -0.75rem 0 1.25rem;
+  font-size: 0.85rem;
 }
 .price-card ul {
   list-style: none;
@@ -606,6 +616,7 @@ a { color: inherit; }
 }
 .newsletter-form input::placeholder { color: color-mix(in srgb, var(--bg) 55%, transparent); }
 .newsletter-form input:invalid:not(:placeholder-shown) { border-color: var(--accent); }
+.form-message a { color: inherit; text-decoration: underline; }
 .form-message {
   grid-column: 1 / -1;
   margin: -0.5rem 0 0;
@@ -643,7 +654,7 @@ a { color: inherit; }
 
 .cta-band {
   background: var(--accent-dark);
-  color: #FFFDF9;
+  color: var(--on-accent);
 }
 .cta-inner {
   text-align: center;
@@ -652,9 +663,9 @@ a { color: inherit; }
   align-items: center;
   gap: 1.75rem;
 }
-.cta-band h2 { color: #FFFDF9; max-width: 20ch; }
-.cta-band .btn-primary { background: #FFFDF9; color: var(--accent-dark); }
-.cta-band .btn-primary:hover { background: var(--bg); }
+.cta-band h2 { color: var(--on-accent); max-width: 20ch; }
+.cta-band .btn-primary { background: var(--on-accent); color: var(--accent-dark); }
+.cta-band .btn-primary:hover { background: color-mix(in srgb, var(--on-accent) 88%, var(--accent-dark)); }
 
 .site-footer {
   border-top: 1px solid var(--line);
@@ -670,6 +681,8 @@ a { color: inherit; }
   gap: 1.5rem;
 }
 .footer-nav { display: flex; gap: 1.75rem; }
+.footer-contact { width: 100%; margin: 0; font-size: 0.9rem; }
+.footer-contact a { color: var(--ink); }
 .footer-nav a { text-decoration: none; color: var(--ink-soft); font-size: 0.9rem; }
 .footer-nav a:hover { color: var(--ink); }
 .footer-fine {

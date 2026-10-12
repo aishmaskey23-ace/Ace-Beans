@@ -24,7 +24,7 @@ ace-beans.vercel.app
 - **Back-to-top button**
 - Respects `prefers-reduced-motion` and keeps visible keyboard focus states throughout
 
-## Screenshots of Website
+## Screenshots of Website (Specific portion only )
 ![alt text](images/image.png)
 ![alt text](images/image-1.png)
 ![alt text](images/image-2.png)
@@ -33,7 +33,8 @@ ace-beans.vercel.app
 ![alt text](images/image-5.png)
 ![alt text](images/image-6.png)
 ![alt text](images/image-7.png)
-![alt text](images/image-8.png)
+
+
 
 ## Project structure
 

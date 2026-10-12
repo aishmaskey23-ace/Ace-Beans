@@ -3,8 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ace Beans — Himalayan Coffee, Roasted in Kathmandu</title>
-<meta name="description" content="Ace Beans is a Nepal-grown, Kathmandu-roasted coffee subscription. Direct from Gulmi, Kavre and Palpa to your cup.">
+<title>Ace Beans — Himalayan Coffee, Roasted in the Kathmandu Valley</title>
+<meta name="description" content="Ace Beans is a Nepal-grown, Kathmandu Valley-roasted coffee subscription. Direct from Gulmi, Kavre, Palpa and Syangja to your cup.">
+<meta name="theme-color" content="#FBF3E7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ace Beans — Himalayan Coffee, Roasted in the Kathmandu Valley">
+<meta property="og:description" content="Nepal-grown coffee from mid-hill cooperatives, roasted in small batches and shipped the same week.">
+<meta property="og:url" content="https://ace-beans.vercel.app/">
+<meta property="og:image" content="https://ace-beans.vercel.app/images/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<script>
+  /* Runs before first paint: no light-mode flash, and .reveal only hides content when JS is running */
+  (function () {
+    var d = document.documentElement;
+    d.classList.add('js');
+    try {
+      var s = localStorage.getItem('acebeans-theme');
+      var dark = s ? s === 'dark' : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (dark) d.setAttribute('data-theme', 'dark');
+    } catch (e) {}
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
@@ -43,9 +63,9 @@
   <section class="hero" id="top">
     <div class="hero-inner">
       <div class="hero-copy">
-        <p class="hero-kicker"><span class="devanagari">नमस्ते 🙏</span> — Himalayan coffee, roasted in Kathmandu</p>
+        <p class="hero-kicker"><span class="devanagari">नमस्ते 🙏</span> — Himalayan coffee, roasted in the Kathmandu Valley</p>
         <h1>Coffee grown on Nepal's mid-hills, roasted before it ever gets old.</h1>
-        <p class="hero-sub">We buy green beans from cooperatives in Gulmi, Kavre and Palpa, then roast every order out of our Kathmandu roastery the week it ships. Delivered nationwide, paid for however you like — eSewa, Khalti, or cash on delivery.</p>
+        <p class="hero-sub">We buy green beans from cooperatives in Gulmi, Kavre, Palpa and Syangja, then roast every order at our Lalitpur roastery the week it ships. Delivered nationwide — pay with eSewa or Khalti, or cash on delivery inside the Kathmandu valley.</p>
         <div class="hero-actions">
           <a href="#pricing" class="btn btn-primary">Choose your beans</a>
           <a href="#story" class="btn btn-ghost">Read our story</a>
@@ -53,7 +73,7 @@
         <dl class="hero-stats">
           <div><dt data-count="4">0</dt><dd>partner cooperatives</dd></div>
           <div><dt data-count="1650" data-suffix="m">0</dt><dd>avg. farm altitude</dd></div>
-          <div><dt data-count="72" data-suffix="hrs">0</dt><dd>roast to doorstep</dd></div>
+          <div><dt data-count="3" data-suffix=" days">0</dt><dd>max. roast to dispatch</dd></div>
         </dl>
       </div>
       <div class="hero-visual">
@@ -61,13 +81,13 @@
           <path d="M0 160 L60 100 L110 150 L170 70 L230 140 L290 90 L340 150 L400 120 L400 200 L0 200 Z" />
         </svg>
         <div class="bean-card card-1">
-          <img src="https://images.pexels.com/photos/16139709/pexels-photo-16139709/free-photo-of-coffee-roasting-machine.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=900" alt="Coffee beans turning in an industrial roasting drum" loading="lazy">
+          <img src="images/photos/pexels-16139709.jpg" alt="Coffee beans turning in an industrial roasting drum" width="900" height="600" loading="eager" fetchpriority="high">
         </div>
         <div class="bean-card card-2">
-          <img src="https://images.pexels.com/photos/4815954/pexels-photo-4815954.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=600" alt="Close-up pile of freshly roasted coffee beans" loading="lazy">
+          <img src="images/photos/pexels-4815954.jpg" alt="Close-up pile of freshly roasted coffee beans" width="600" height="400" loading="eager">
         </div>
         <div class="bean-card card-3">
-          <img src="https://images.pexels.com/photos/7125542/pexels-photo-7125542.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=600" alt="Farmer holding a ripe red coffee cherry" loading="lazy">
+          <img src="images/photos/pexels-7125542.jpg" alt="Farmer holding a ripe red coffee cherry" width="600" height="400" loading="eager">
         </div>
         <svg class="steam" viewBox="0 0 120 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M30 190 C10 160 50 140 30 110 C10 80 50 60 30 30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
@@ -83,10 +103,10 @@
       <span>Kavre Coffee Growers</span>
       <span>Palpa Highland Farms</span>
       <span>Syangja Coffee Collective</span>
-      <span>Gulmi Hills Cooperative</span>
-      <span>Kavre Coffee Growers</span>
-      <span>Palpa Highland Farms</span>
-      <span>Syangja Coffee Collective</span>
+      <span aria-hidden="true">Gulmi Hills Cooperative</span>
+      <span aria-hidden="true">Kavre Coffee Growers</span>
+      <span aria-hidden="true">Palpa Highland Farms</span>
+      <span aria-hidden="true">Syangja Coffee Collective</span>
     </div>
   </section>
 
@@ -96,25 +116,28 @@
       <p class="section-lede">We keep the lineup small on purpose — easier to buy well from each cooperative, easier to roast right.</p>
       <div class="bean-grid">
         <article class="bean reveal">
-          <img class="bean-photo" src="https://images.pexels.com/photos/11953269/pexels-photo-11953269.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=600" alt="Light roast coffee beans, close up" loading="lazy">
+          <img class="bean-photo" width="600" height="400" src="images/photos/pexels-11953269.jpg" alt="Light roast coffee beans, close up" loading="lazy">
           <h3>Gulmi Hills</h3>
           <p class="bean-origin">Gulmi, Nepal — Washed, 1,650m</p>
           <p>Bright citrus and orange blossom, with a brown-sugar finish. Our lightest roast, best through a pour-over.</p>
           <p class="bean-price">Rs. 850 <span>/ 250g</span></p>
+          <a href="https://wa.me/9779746553700?text=Hi%20Ace%20Beans%2C%20I%27d%20like%20to%20order%20Gulmi%20Hills%20%28250g%29." class="btn btn-outline" target="_blank" rel="noopener">Order on WhatsApp</a>
         </article>
         <article class="bean reveal">
-          <img class="bean-photo" src="https://images.pexels.com/photos/36343668/pexels-photo-36343668/free-photo-of-close-up-of-roasted-coffee-beans.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=600" alt="Medium roast coffee beans, close up" loading="lazy">
+          <img class="bean-photo" width="600" height="400" src="images/photos/pexels-36343668.jpg" alt="Medium roast coffee beans, close up" loading="lazy">
           <h3>Kavre Cooperative</h3>
           <p class="bean-origin">Kavrepalanchok, Nepal — Natural, 1,500m</p>
           <p>Jammy stone fruit and a touch of jaggery sweetness, settling into a syrupy body. Great black or with milk.</p>
           <p class="bean-price">Rs. 800 <span>/ 250g</span></p>
+          <a href="https://wa.me/9779746553700?text=Hi%20Ace%20Beans%2C%20I%27d%20like%20to%20order%20Kavre%20Cooperative%20%28250g%29." class="btn btn-outline" target="_blank" rel="noopener">Order on WhatsApp</a>
         </article>
         <article class="bean reveal">
-          <img class="bean-photo" src="https://images.pexels.com/photos/20708709/pexels-photo-20708709/free-photo-of-abundance-of-coffee-grains.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=600" alt="Dark roast coffee beans, close up" loading="lazy">
+          <img class="bean-photo" width="600" height="400" src="images/photos/pexels-20708709.jpg" alt="Dark roast coffee beans, close up" loading="lazy">
           <h3>Palpa Highlands</h3>
           <p class="bean-origin">Palpa, Nepal — Washed, 1,750m</p>
           <p>Cocoa and toasted walnut, low acidity, full body. The one we reach for on espresso.</p>
           <p class="bean-price">Rs. 900 <span>/ 250g</span></p>
+          <a href="https://wa.me/9779746553700?text=Hi%20Ace%20Beans%2C%20I%27d%20like%20to%20order%20Palpa%20Highlands%20%28250g%29." class="btn btn-outline" target="_blank" rel="noopener">Order on WhatsApp</a>
         </article>
       </div>
     </div>
@@ -126,7 +149,7 @@
       <p class="section-lede">Ace Beans started in a small kitchen in Kathmandu, roasting a kilo at a time because good Nepali coffee was hard to find outside a handful of cafes.</p>
       <ol class="timeline">
         <li>
-          <img class="timeline-photo" src="https://images.pexels.com/photos/7125425/pexels-photo-7125425.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="Farmer holding a ripe red coffee cherry in a plantation" loading="lazy">
+          <img class="timeline-photo" width="140" height="140" src="images/photos/pexels-7125425.jpg" alt="Farmer holding a ripe red coffee cherry in a plantation" loading="lazy">
           <div class="timeline-copy">
             <span class="timeline-dot"></span>
             <h3>Grown at 1,500–1,750m</h3>
@@ -134,7 +157,7 @@
           </div>
         </li>
         <li>
-          <img class="timeline-photo" src="https://images.pexels.com/photos/7125542/pexels-photo-7125542.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="Close-up of freshly picked coffee cherries" loading="lazy">
+          <img class="timeline-photo" width="140" height="140" src="images/photos/pexels-7125542.jpg" alt="Close-up of freshly picked coffee cherries" loading="lazy">
           <div class="timeline-copy">
             <span class="timeline-dot"></span>
             <h3>Dried and sorted at the farm</h3>
@@ -142,19 +165,19 @@
           </div>
         </li>
         <li>
-          <img class="timeline-photo" src="https://images.pexels.com/photos/22718754/pexels-photo-22718754/free-photo-of-coffee-beans-in-a-metal-roasting-machine.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="Coffee beans turning inside a metal roasting machine" loading="lazy">
+          <img class="timeline-photo" width="140" height="140" src="images/photos/pexels-22718754.jpg" alt="Coffee beans turning inside a metal roasting machine" loading="lazy">
           <div class="timeline-copy">
             <span class="timeline-dot"></span>
-            <h3>Roasted in our Kathmandu roastery</h3>
-            <p>Green beans reach us in Lalitpur, where we roast in small batches, usually under 12kg, two to three days before your order ships.</p>
+            <h3>Roasted in our Lalitpur roastery</h3>
+            <p>Green beans reach our roastery in Lalitpur, where we roast in small batches, usually under 12kg, two to three days before your order ships.</p>
           </div>
         </li>
         <li>
-          <img class="timeline-photo" src="https://images.pexels.com/photos/26238871/pexels-photo-26238871/free-photo-of-man-preparing-coffee.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="Fresh coffee being brewed pour-over style at home" loading="lazy">
+          <img class="timeline-photo" width="140" height="140" src="images/photos/pexels-26238871.jpg" alt="Fresh coffee being brewed pour-over style at home" loading="lazy">
           <div class="timeline-copy">
             <span class="timeline-dot"></span>
             <h3>Delivered across Nepal</h3>
-            <p>We ship nationwide via courier, with cash on delivery, eSewa, or Khalti at checkout — same-day dispatch inside the Kathmandu valley.</p>
+            <p>We ship nationwide via courier. Pay by eSewa or Khalti anywhere in Nepal, or cash on delivery inside the Kathmandu valley — with same-day dispatch inside the valley.</p>
           </div>
         </li>
       </ol>
@@ -191,7 +214,7 @@
         <div class="testimonial-track" id="testimonialTrack">
           <blockquote class="testimonial">
             <p class="stars">★★★★★</p>
-            <p class="quote">First bag arrived five days after it was picked in Gulmi. I didn't know Nepali coffee could taste like this.</p>
+            <p class="quote">First bag arrived within a week of roasting. I didn't know Nepali coffee could taste like this.</p>
             <footer><strong>Sabin Shrestha</strong> — Kathmandu</footer>
           </blockquote>
           <blockquote class="testimonial">
@@ -214,6 +237,7 @@
           <button id="prevTestimonial" aria-label="Previous testimonial">&larr;</button>
           <div class="testimonial-dots" id="testimonialDots"></div>
           <button id="nextTestimonial" aria-label="Next testimonial">&rarr;</button>
+          <button id="pauseTestimonial" class="pause-btn" aria-label="Pause testimonials" aria-pressed="false">❚❚</button>
         </div>
       </div>
     </div>
@@ -222,38 +246,41 @@
   <section class="pricing" id="pricing">
     <div class="section-inner">
       <h2>Pick a rhythm</h2>
-      <p class="section-lede">Every plan ships whole bean or ground, your call. Pay by eSewa, Khalti, or cash on delivery — pause or cancel anytime from your account.</p>
+      <p class="section-lede">Every plan ships whole bean or ground, your call. The price depends on the roast you pick. Pay by eSewa or Khalti, or cash on delivery inside the Kathmandu valley — pause or cancel anytime.</p>
       <div class="price-grid">
         <article class="price-card">
           <h3>Every 4 weeks</h3>
-          <p class="price">Rs. 850<span>/ 250g bag</span></p>
+          <p class="price">Rs. 800–900<span>/ 250g bag</span></p>
+          <p class="price-note">Standard bean price, by roast</p>
           <ul>
             <li>One roast of your choice</li>
-            <li>Free delivery over Rs. 2,000</li>
+            <li>Delivery calculated at checkout</li>
             <li>Swap roasts anytime</li>
           </ul>
-          <a href="#" class="btn btn-outline">Start this plan</a>
+          <a href="https://wa.me/9779746553700?text=Hi%20Ace%20Beans%2C%20I%27d%20like%20to%20start%20the%20every%204%20weeks%20plan." class="btn btn-outline" target="_blank" rel="noopener">Start this plan</a>
         </article>
         <article class="price-card featured">
           <p class="price-badge">Most chosen</p>
           <h3>Every 2 weeks</h3>
-          <p class="price">Rs. 780<span>/ 250g bag</span></p>
+          <p class="price">Rs. 760–855<span>/ 250g bag</span></p>
+          <p class="price-note">5% off the bean price</p>
           <ul>
             <li>One or two roasts, mixed</li>
             <li>Free delivery, always</li>
             <li>Early access to limited lots</li>
           </ul>
-          <a href="#" class="btn btn-primary">Start this plan</a>
+          <a href="https://wa.me/9779746553700?text=Hi%20Ace%20Beans%2C%20I%27d%20like%20to%20start%20the%20every%202%20weeks%20plan." class="btn btn-primary" target="_blank" rel="noopener">Start this plan</a>
         </article>
         <article class="price-card">
           <h3>Weekly</h3>
-          <p class="price">Rs. 700<span>/ 250g bag</span></p>
+          <p class="price">Rs. 720–810<span>/ 250g bag</span></p>
+          <p class="price-note">10% off the bean price</p>
           <ul>
             <li>All three roasts on rotation</li>
             <li>Free delivery, always</li>
             <li>Priority on new-crop drops</li>
           </ul>
-          <a href="#" class="btn btn-outline">Start this plan</a>
+          <a href="https://wa.me/9779746553700?text=Hi%20Ace%20Beans%2C%20I%27d%20like%20to%20start%20the%20weekly%20plan." class="btn btn-outline" target="_blank" rel="noopener">Start this plan</a>
         </article>
       </div>
     </div>
@@ -304,7 +331,7 @@
 
   <section class="cta-band">
     <div class="section-inner cta-inner">
-      <h2>Your next cup could be a week away from being picked in Gulmi.</h2>
+      <h2>Your next cup could be roasted this week, not this season.</h2>
       <a href="#pricing" class="btn btn-primary btn-large">Choose your beans</a>
     </div>
   </section>
@@ -320,6 +347,7 @@
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
+    <p class="footer-contact">WhatsApp / call: <a href="https://wa.me/9779746553700" target="_blank" rel="noopener">+977 9746553700</a> &middot; Lalitpur, Nepal</p>
     <p class="footer-fine">&copy; 2026 Ace Beans, Lalitpur, Nepal. Roasted in small batches, shipped the same week.</p>
   </div>
 </footer>

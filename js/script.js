@@ -88,7 +88,7 @@ if ('IntersectionObserver' in window) {
       }
       observer.unobserve(entry.target);
     });
-  }, { threshold: 0.4 });
+  }, { threshold: 0.2 });
 
   countEls.forEach((el) => observer.observe(el));
   revealEls.forEach((el) => observer.observe(el));
@@ -101,16 +101,21 @@ const track = document.getElementById('testimonialTrack');
 const dotsWrap = document.getElementById('testimonialDots');
 const prevBtn = document.getElementById('prevTestimonial');
 const nextBtn = document.getElementById('nextTestimonial');
+const pauseBtn = document.getElementById('pauseTestimonial');
+const slider = document.getElementById('testimonialSlider');
 
 if (track && dotsWrap) {
   const slides = Array.from(track.children);
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   let current = 0;
   let autoplayTimer = null;
+  let userPaused = reduceMotion;   // no autoplay for people who asked for less motion
+  let hoverOrFocus = false;
 
   slides.forEach((_, i) => {
     const dot = document.createElement('button');
     dot.setAttribute('aria-label', `Show testimonial ${i + 1}`);
-    dot.addEventListener('click', () => goTo(i));
+    dot.addEventListener('click', () => { goTo(i); syncAutoplay(); });
     dotsWrap.appendChild(dot);
   });
   const dots = Array.from(dotsWrap.children);
@@ -123,31 +128,49 @@ if (track && dotsWrap) {
     dots[current].classList.add('is-active');
   }
 
-  function startAutoplay() {
-    stopAutoplay();
-    autoplayTimer = setInterval(() => goTo(current + 1), 6000);
-  }
-  function stopAutoplay() {
+  function syncAutoplay() {
     if (autoplayTimer) clearInterval(autoplayTimer);
+    autoplayTimer = null;
+    const running = !userPaused && !hoverOrFocus;
+    if (running) autoplayTimer = setInterval(() => goTo(current + 1), 6000);
+    // Only announce slide changes to screen readers when they are not rotating on their own
+    track.setAttribute('aria-live', running ? 'off' : 'polite');
+    if (pauseBtn) {
+      pauseBtn.textContent = userPaused ? '▶' : '❚❚';
+      pauseBtn.setAttribute('aria-label', userPaused ? 'Play testimonials' : 'Pause testimonials');
+      pauseBtn.setAttribute('aria-pressed', String(userPaused));
+    }
   }
 
-  prevBtn?.addEventListener('click', () => { goTo(current - 1); startAutoplay(); });
-  nextBtn?.addEventListener('click', () => { goTo(current + 1); startAutoplay(); });
-  track.addEventListener('mouseenter', stopAutoplay);
-  track.addEventListener('mouseleave', startAutoplay);
+  prevBtn?.addEventListener('click', () => { goTo(current - 1); syncAutoplay(); });
+  nextBtn?.addEventListener('click', () => { goTo(current + 1); syncAutoplay(); });
+  pauseBtn?.addEventListener('click', () => { userPaused = !userPaused; syncAutoplay(); });
+
+  // Pause on mouse hover AND keyboard focus anywhere inside the slider
+  slider?.addEventListener('mouseenter', () => { hoverOrFocus = true; syncAutoplay(); });
+  slider?.addEventListener('mouseleave', () => { hoverOrFocus = false; syncAutoplay(); });
+  slider?.addEventListener('focusin', () => { hoverOrFocus = true; syncAutoplay(); });
+  slider?.addEventListener('focusout', () => { hoverOrFocus = false; syncAutoplay(); });
 
   goTo(0);
-  startAutoplay();
+  syncAutoplay();
 }
+
+/* Newsletter
+   Set NEWSLETTER_ENDPOINT to a real form endpoint (e.g. a Formspree URL) to switch signups on.
+   Until then the form is honest: it does NOT pretend to have saved the email. */
+const NEWSLETTER_ENDPOINT = '';
+const WHATSAPP_NUMBER = '9779746553700';
 
 const newsletterForm = document.getElementById('newsletterForm');
 const newsletterMessage = document.getElementById('newsletterMessage');
 const newsletterEmail = document.getElementById('newsletterEmail');
 
-newsletterForm?.addEventListener('submit', (event) => {
+newsletterForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const value = newsletterEmail.value.trim();
   const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  newsletterMessage.textContent = '';
 
   if (!isValid) {
     newsletterMessage.textContent = 'Please enter a valid email address.';
@@ -155,8 +178,29 @@ newsletterForm?.addEventListener('submit', (event) => {
     return;
   }
 
-  newsletterMessage.textContent = `Thanks — we'll send the roast calendar to ${value}.`;
-  newsletterForm.reset();
+  if (!NEWSLETTER_ENDPOINT) {
+    const text = encodeURIComponent(`Hi Ace Beans, please add ${value} to the roast calendar email list.`);
+    const link = document.createElement('a');
+    link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.textContent = 'Send us your email on WhatsApp →';
+    newsletterMessage.append('Email signups aren’t switched on yet. ', link);
+    return;
+  }
+
+  try {
+    const res = await fetch(NEWSLETTER_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email: value })
+    });
+    if (!res.ok) throw new Error('Request failed');
+    newsletterMessage.textContent = `Thanks — we'll send the roast calendar to ${value}.`;
+    newsletterForm.reset();
+  } catch (err) {
+    newsletterMessage.textContent = 'Something went wrong. Please try again, or message us on WhatsApp.';
+  }
 });
 
 const backToTop = document.getElementById('backToTop');
